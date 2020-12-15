@@ -1,0 +1,16 @@
+<div id="wrapper">
+  <navigation [loginInfo]="loginInfo" *ngIf="loginInfo"></navigation>
+
+  <div id="page-wrapper" class="gray-bg">
+
+    <topnavbar></topnavbar>
+
+    <router-outlet></router-outlet>
+
+    <div class="footer">
+      <div>
+        <strong>Myriad Computing</strong> (Nilesh Shegokar)
+      </div>
+    </div>
+  </div>
+</div>

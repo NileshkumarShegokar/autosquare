@@ -1,0 +1,14 @@
+package @PACKAGE;
+
+import java.net.URL;
+import @basePackage.util.Language;
+import org.testng.annotations.DataProvider;
+public class @CLASS {
+
+    @DataProvider(name="@DATA_PROVIDER")
+    public static Object[][] getDataFromDataprovider(){    
+    	URL url=@CLASS.class.getResource("@LOCATION");
+        return DataProviderUtil.getData(url.getPath());      
+    }
+
+}

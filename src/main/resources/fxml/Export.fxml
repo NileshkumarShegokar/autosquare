@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefWidth="763.0" stylesheets="@sidebar.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myriad.auto2.controllers.ExportController">
+   <children>
+      <VBox fx:id="root" prefWidth="763.0">
+         <children>
+            <HBox prefWidth="200.0" styleClass="sidebar">
+               <children>
+                  <Label prefHeight="37.0" prefWidth="505.0" text="AutoSqaure Export Tool">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="TOP_RIGHT" prefHeight="38.0" prefWidth="603.0">
+                     <children>
+                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#close_window">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="48.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="24.0" prefWidth="215.0" styleClass="lbl2" text="Project to Export">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox layoutX="10.0" layoutY="72.0" prefWidth="100.0">
+               <children>
+                  <HBox prefWidth="200.0">
+                     <children>
+                        <Label styleClass="lbl2" text="Select project to Export">
+                           <padding>
+                              <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <ComboBox fx:id="project" prefHeight="25.0" prefWidth="173.0">
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <CheckBox fx:id="springApp" mnemonicParsing="false" text="Build as Spring Application">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator layoutX="10.0" layoutY="188.0" prefWidth="200.0" />
+            <HBox prefWidth="200.0">
+               <children>
+                  <Label prefHeight="24.0" prefWidth="215.0" styleClass="lbl2" text="Data Generation Settings">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox prefWidth="100.0">
+               <children>
+                  <HBox prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="generateData" mnemonicParsing="false" styleClass="lbl2" text="Generate Data">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <Label styleClass="lbl2" text="No of Test Cases">
+                           <padding>
+                              <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Spinner fx:id="noOfTestCases" editable="true" prefHeight="45.0" prefWidth="110.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Spinner>
+                        <Label styleClass="lbl2" text="Internationalization">
+                           <padding>
+                              <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <VBox prefWidth="100.0">
+                           <children>
+                              <HBox prefWidth="200.0">
+                                 <children>
+                                    <CheckBox fx:id="en" mnemonicParsing="false" styleClass="lbl2" text="EN">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="de" mnemonicParsing="false" styleClass="lbl2" text="DE">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="es" mnemonicParsing="false" styleClass="lbl2" text="ES">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefWidth="200.0">
+                                 <children>
+                                    <CheckBox fx:id="fr" mnemonicParsing="false" styleClass="lbl2" text="FR">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="ja" mnemonicParsing="false" styleClass="lbl2" text="JA">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="ru" mnemonicParsing="false" styleClass="lbl2" text="RU">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator prefWidth="200.0" />
+            <HBox layoutX="10.0" layoutY="48.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="24.0" prefWidth="229.0" styleClass="lbl2" text="Cross Browser Settings">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="pomGenerate" mnemonicParsing="false" styleClass="lbl2" text="POM Generation">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </CheckBox>
+                  <Label styleClass="lbl2" text="Implicit Timeout">
+                     <padding>
+                        <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Spinner fx:id="timeout" editable="true" prefHeight="45.0" prefWidth="110.0">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Spinner>
+                  <Label styleClass="lbl2" text="Browser">
+                     <padding>
+                        <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <VBox prefHeight="55.0" prefWidth="231.0">
+                     <children>
+                        <HBox prefWidth="200.0">
+                           <children>
+                              <CheckBox fx:id="chrome" mnemonicParsing="false" styleClass="lbl2" text="Chrome">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="firefox" mnemonicParsing="false" styleClass="lbl2" text="Firefox">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="safari" mnemonicParsing="false" styleClass="lbl2" text="Safari">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefWidth="200.0">
+                           <children>
+                              <CheckBox fx:id="opera" mnemonicParsing="false" styleClass="lbl2" text="Opera">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="edge" mnemonicParsing="false" styleClass="lbl2" text="Edge">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="html" mnemonicParsing="false" styleClass="lbl2" text="HTML">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </CheckBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox prefWidth="200.0">
+               <children>
+                  <Label prefHeight="24.0" prefWidth="220.0" styleClass="lbl2" text="POM Project Settings">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefWidth="200.0">
+               <children>
+                  <Label styleClass="lbl2" text="Save Project To ">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="saveTo" prefHeight="25.0" prefWidth="415.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="browse" mnemonicParsing="false" styleClass="lbl2" text="Browse">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="237.0" prefWidth="200.0">
+               <children>
+                  <Label styleClass="lbl2" text="Artifact id">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="artifact" prefHeight="25.0" prefWidth="173.0">
+                     <HBox.margin>
+                        <Insets left="35.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label styleClass="lbl2" text="Group id">
+                     <HBox.margin>
+                        <Insets left="30.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="group">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label styleClass="lbl2" text="Version">
+                     <HBox.margin>
+                        <Insets left="30.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="version" prefHeight="25.0" prefWidth="133.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefWidth="200.0">
+               <children>
+                  <Label styleClass="lbl2" text="Package">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="pack" prefWidth="173.0">
+                     <HBox.margin>
+                        <Insets left="43.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label styleClass="lbl2" text="Over -write">
+                     <HBox.margin>
+                        <Insets left="30.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <CheckBox fx:id="overwrite" mnemonicParsing="false" styleClass="lbl2" text="Over-write the existing project configuration">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER_RIGHT" prefWidth="200.0" styleClass="sidebar">
+               <children>
+                  <Button fx:id="exportBtn" mnemonicParsing="false" text="Export" />
+                  <Button fx:id="cancle" mnemonicParsing="false" onAction="#close_window" text="Cancle">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,20 @@
+package @package;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Service;
+
+@Service
+public class WebSocketMessage {
+
+    private static SimpMessagingTemplate template;
+
+    @Autowired
+    public WebSocketMessage(final SimpMessagingTemplate template) {
+        this.template = template;
+    }
+
+    public static void sendMessage(Object object) {
+    	template.convertAndSend("/chat", object);
+    }
+}

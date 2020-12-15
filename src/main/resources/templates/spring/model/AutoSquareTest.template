@@ -1,0 +1,62 @@
+package @package;
+
+public class AutoSquareTest {
+
+	private String name;
+	private Long startTime;
+	private Long endTime;
+	private int status;
+	private int invocationCount;
+	private String testClass;
+	private Object[] parameters;
+	private int successPercentage;
+
+	public int getSuccessPercentage() {
+		return successPercentage;
+	}
+	public void setSuccessPercentage(int successPercentage) {
+		this.successPercentage = successPercentage;
+	}
+	public Object[] getParameters() {
+		return parameters;
+	}
+	public void setParameters(Object[] parameters) {
+		this.parameters = parameters;
+	}
+	public String getTestClass() {
+		return testClass;
+	}
+	public void setTestClass(String testClass) {
+		this.testClass = testClass;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Long getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+	public Long getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getInvocationCount() {
+		return invocationCount;
+	}
+	public void setInvocationCount(int invocationCount) {
+		this.invocationCount = invocationCount;
+	}
+}

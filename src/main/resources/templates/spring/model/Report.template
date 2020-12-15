@@ -1,0 +1,110 @@
+package @package;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Report {
+	private Long startTime;
+	private Long endTime;
+    private String host;
+    private String os;
+    private String browser;
+    private String browserVersion;
+
+
+
+
+	Map<String,AutoSquareSuite> suites=new HashMap<String,AutoSquareSuite>();
+
+	public static Report instance;
+	//static block initialization for exception handling
+    static{
+        try{
+            instance = new Report();
+        }catch(Exception e){
+            throw new RuntimeException("Exception occured in creating singleton instance");
+        }
+    }
+    public static void reset() {
+    	instance=new Report();
+    }
+
+    public static Report getInstance(){
+        return instance;
+    }
+
+	public void addTest(String suiteName, AutoSquareTest test)
+	{
+		AutoSquareSuite suite=suites.get(suiteName);
+		if(suite!=null)
+		suite.getTests().add(test);
+
+
+	}
+
+	public void addSuite(String suiteName) {
+		if(suites.get(suiteName)==null) {
+		AutoSquareSuite suite=new AutoSquareSuite(suiteName);
+		suites.put(suiteName, suite);
+		}
+	}
+
+	public Long getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+
+
+
+	public Long getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+	}
+
+	public Map<String, AutoSquareSuite> getSuites() {
+		return suites;
+	}
+
+	public void setSuites(Map<String, AutoSquareSuite> suites) {
+		this.suites = suites;
+	}
+
+	 public String getHost() {
+                return host;
+            }
+
+            public void setHost(String host) {
+                this.host = host;
+            }
+
+            public String getOs() {
+                return os;
+            }
+
+            public void setOs(String os) {
+                this.os = os;
+            }
+
+            public String getBrowser() {
+                return browser;
+            }
+
+            public void setBrowser(String browser) {
+                this.browser = browser;
+            }
+
+            public String getBrowserVersion() {
+                return browserVersion;
+            }
+
+            public void setBrowserVersion(String browserVersion) {
+                this.browserVersion = browserVersion;
+            }
+
+}

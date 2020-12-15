@@ -1,0 +1,83 @@
+package @PACKAGE;
+
+import java.io.IOException;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
+import org.testng.Assert;
+import org.openqa.selenium.*;
+import org.testng.annotations.Parameters;
+import static org.testng.Assert.fail;
+import @basePackage.model.*;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.interactions.Actions;
+import @basePackage.util.SnapShot;
+import @basePackage.util.DriverFactory;
+
+public class @CLASS {
+
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+  private Integer iterationCounter=1;
+
+  @BeforeTest
+  @Parameters("browser")
+  public void setUp(String browser) throws Exception {
+    driver = DriverFactory.getDriver(browser);
+    driver.manage().window().maximize();
+  }
+
+  @TEST
+  
+
+    @AfterMethod
+	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+		if (testResult.getStatus() == ITestResult.FAILURE) {
+			System.out.println(testResult.getStatus());
+			SnapShot.takeSnapShot(driver,"/error.png");
+	   }        
+	}
+
+  @AfterTest
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}

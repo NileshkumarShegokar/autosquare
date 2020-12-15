@@ -1,0 +1,27 @@
+package @package;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class PropertyManager {
+    private static PropertyManager manager=new PropertyManager();
+    private Properties properties=new Properties();
+    private PropertyManager() {
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File file = new File(classLoader.getResource("application.properties").getFile());
+            properties.load(new FileInputStream(file));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static PropertyManager getInstance(){
+        return manager;
+    }
+    public String getProperty(String property){
+        return properties.getProperty(property);
+    }
+}

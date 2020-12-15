@@ -1,0 +1,211 @@
+<div class="col-lg-12" ng-controller="featureController">
+    
+
+    
+    
+    <div class="wrapper wrapper-content">
+       
+        <!-- Animated -->
+        <div class="animated fadeIn">
+            <!-- Widgets  -->
+            <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card text-white bg-flat-color-indigo">
+                            <div class="card-body">
+                                <div class="card-left pt-1 float-left">
+                                    <h3 class="mb-0 fw-r">
+                                        <button class="btn btn-sm btn-warning btn-rounded" ng-disabled="buildinProgress" ng-click="startSuite()">Start Test Suite</button>
+                                    </h3>
+                                    <p class="text-light mt-1 m-0">Build Suite</p>
+                                </div><!-- /.card-left -->
+                                <div class="card-right float-right text-right">
+                                    <i class="icon fade-5 icon-lg pe-7s-rocket"></i>
+                                </div><!-- /.card-right -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.col-->
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card text-white bg-flat-color-green">
+                            <div class="card-body">
+                                <div class="card-left pt-1 float-left">
+                                    <h3 class="mb-0 fw-r">
+                                        <span class="count" ng-bind="pass"></span>
+                                    </h3>
+                                    <p class="text-light mt-1 m-0">Tests Passed</p>
+                                </div><!-- /.card-left -->
+
+                                <div class="card-right float-right text-right">
+                                    <i class="icon fade-5 icon-lg pe-7s-check"></i>
+                                </div><!-- /.card-right -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card text-white bg-flat-color-red">
+                            <div class="card-body">
+                                <div class="card-left pt-1 float-left">
+                                    <h3 class="mb-0 fw-r">
+                                        <span class="count" ng-bind="fail"></span>
+                                    </h3>
+                                    <p class="text-light mt-1 m-0">Tests Failed</p>
+                                </div><!-- /.card-left -->
+
+                                <div class="card-right float-right text-right">
+                                    <i class="icon fade-5 icon-lg pe-7s-close-circle"></i>
+                                </div><!-- /.card-right -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card text-white bg-flat-color-yellow">
+                            <div class="card-body">
+                                <div class="card-left pt-1 float-left">
+                                    <h3 class="mb-0 fw-r">
+                                        <span class="count" ng-bind="skip"></span>
+                                    </h3>
+                                    <p class="text-light mt-1 m-0">Tests Skipped</p>
+                                </div><!-- /.card-left -->
+
+                                <div class="card-right float-right text-right">
+                                    <i class="icon fade-5 icon-lg pe-7s-help1"></i>
+                                </div><!-- /.card-right -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.col-->
+                    </div>
+            <!-- /Widgets -->
+            
+            <div class="clearfix"></div>
+            <!-- Orders -->
+            <div class="orders">
+                <div class="row">
+                    <div class="col-xl-8">
+                            <!--extra code sample-->
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                
+        
+            </div><!-- panel-group -->
+            <script>
+            function toggleIcon(e) {
+    $(e.target)
+        .prev('.panel-heading')
+        .find(".more-less")
+        .toggleClass('glyphicon-plus glyphicon-minus');
+}
+$('.panel-group').on('hidden.bs.collapse', toggleIcon);
+$('.panel-group').on('shown.bs.collapse', toggleIcon);
+            </script>
+
+            <style>
+            /*******************************
+* Does not work properly if "in" is added after "collapse".
+* Get free snippets on bootpen.com
+*******************************/
+    .panel-group .panel {
+        border-radius: 0;
+        box-shadow: none;
+        border-color: #EEEEEE;
+    }
+
+    .panel-default > .panel-heading {
+        padding: 0;
+        border-radius: 0;
+        color: #212121;
+        background-color: #FAFAFA;
+        border-color: #EEEEEE;
+    }
+
+    .panel-title {
+        font-size: 14px;
+    }
+
+    .panel-title > a {
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+    }
+
+    .more-less {
+        float: right;
+        color: #212121;
+    }
+
+    .panel-default > .panel-heading + .panel-collapse > .panel-body {
+        border-top-color: #EEEEEE;
+    }
+
+/* ----- v CAN BE DELETED v ----- */
+body {
+    background-color: #26a69a;
+}
+
+.demo {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+            </style>
+        <!--extra code sample end here-->
+                    </div>  <!-- /.col-lg-8 -->
+
+                    <div class="col-xl-4">
+                        <div class="row">
+                                <div class="col-lg-6 col-xl-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="stat-widget-one">
+                                                    <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
+                                                    <div class="stat-content dib">
+                                                        <div class="stat-text">Environment</div>
+                                                        <div class="stat-digit" ng-bind="report.os"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div><div class="row">
+                                <div class="col-lg-6 col-xl-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="stat-widget-one">
+                                                    <div class="stat-icon dib"><i class="ti-link text-danger border-danger"></i></div>
+                                                    <div class="stat-content dib">
+                                                        <div class="stat-text">Host</div>
+                                                        <div class="stat-digit" ng-bind="report.host"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div> <!-- /.col-md-4 -->
+                </div>
+            </div>
+            <!-- /.orders -->
+            
+            
+            <!-- /#event-modal -->
+            
+        </div>
+        <!-- .animated -->
+
+        
+
+    </div>
+
+
+    
+</div>

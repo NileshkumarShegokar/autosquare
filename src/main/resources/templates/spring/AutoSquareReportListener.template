@@ -1,0 +1,92 @@
+package @package;
+
+import com.org.util.WindowUtility;
+import org.springframework.stereotype.Component;
+import org.testng.ISuite;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+import com.org.report.model.AutoSquareTest;
+import com.org.report.model.Report;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+@Component
+public class AutoSquareReportListener implements ITestListener {
+
+	@Override
+	public void onFinish(ITestContext result) {
+		Report.getInstance().setEndTime(result.getEndDate().getTime());
+		WebSocketMessage.sendMessage(Report.getInstance());
+	}
+
+	@Override
+	public void onStart(ITestContext result) {
+        Report.getInstance().reset();
+        Report.getInstance().setOs(WindowUtility.OSDetector());
+        String host=result.getHost();
+        if(host ==null)
+            try {
+                host=InetAddress.getLocalHost().getHostAddress();
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            }
+        Report.getInstance().setHost(host);
+        Report.getInstance().setStartTime(result.getStartDate().getTime());
+        Report.getInstance().setBrowserVersion(WindowUtility.getBrowserAndVersion());
+        WebSocketMessage.sendMessage(Report.getInstance());
+	}
+
+	@Override
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+
+	}
+
+	// When Test case get failed, this method is called.
+	@Override
+	public void onTestFailure(ITestResult result) {
+		addTest(result);
+		WebSocketMessage.sendMessage(Report.getInstance());
+	}
+
+	private void addTest(ITestResult result) {
+		AutoSquareTest test = new AutoSquareTest();
+		test.setStartTime(result.getStartMillis());
+		test.setEndTime(result.getEndMillis());
+		test.setName(result.getName());
+		test.setTestClass(result.getTestClass().getName());
+		test.setStatus(result.getStatus());
+		test.setParameters(result.getParameters());
+		test.setSuccessPercentage(result.getMethod().getSuccessPercentage());
+		test.setInvocationCount(result.getMethod().getCurrentInvocationCount());
+		// get suite
+		ISuite suite = result.getTestContext().getSuite();
+		String name = suite.getName();
+		Report report = Report.getInstance();
+		report.addSuite(name);
+		report.addTest(name, test);
+		WebSocketMessage.sendMessage(Report.getInstance());
+	}
+
+	// When Test case get Skipped, this method is called.
+	@Override
+	public void onTestSkipped(ITestResult result) {
+		addTest(result);
+	}
+
+	// When Test case get Started, this method is called.
+	@Override
+	public void onTestStart(ITestResult result) {
+		// System.out.println(result.getName() + " test case started");
+	}
+
+	// When Test case get passed, this method is called.
+	@Override
+	public void onTestSuccess(ITestResult result) {
+		addTest(result);
+		WebSocketMessage.sendMessage(Report.getInstance());
+	}
+
+}
