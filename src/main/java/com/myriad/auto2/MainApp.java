@@ -1,14 +1,12 @@
 package com.myriad.auto2;
 
 import com.myriad.auto2.controllers.MainController;
-import com.myriad.auto2.controllers.SidebarController;
 import com.myriad.auto2.engine.ControllerStore;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,13 +23,13 @@ public class MainApp extends Application {
         try {
             String home = "/fxml/Main.fxml";
             //Dec 31, 2019 12:00:00 AM for Evolution copy expire date
-            Date date = new Date(1626535546000L);
-            long current = Calendar.getInstance().getTimeInMillis();
-            if (current >= date.getTime()) {
-                home = "/fxml/License.fxml";
-            } else {
-                stage.setMaximized(true);
-            }
+//            Date date = new Date(1626535546000L);
+//            long current = Calendar.getInstance().getTimeInMillis();
+//            if (current >= date.getTime()) {
+//                home = "/fxml/License.fxml";
+//            } else {
+//                stage.setMaximized(true);
+//            }
             FXMLLoader loader = new FXMLLoader();
             Parent root = loader.load(getClass().getResource(home));
             MainController controller = (MainController) loader.getController();
@@ -39,10 +37,10 @@ public class MainApp extends Application {
             Scene scene = new Scene(root);
             stage.setScene(scene);
 
-            stage.setFullScreen(true);
+            //stage.setFullScreen(true);
             stage.setTitle("AutoSquare");
 
-            stage.setMaximized(true);
+            //stage.setMaximized(true);
             stage.show();
             MainApp.stage = stage;
         }catch (Exception e)
